@@ -7,6 +7,8 @@ import ThemeButton from './components/ThemeButton'
 
 import "./index.css";
 import "./styles/theme.css";
+import Counter from './components/Counter'
+import { Parent } from './components/ParentComponent'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -65,6 +67,13 @@ function App() {
         <p className="read-the-docs">
           Click on the Vite and React logos to learn more
         </p>
+
+
+        <h1>Redux Counter Example</h1>
+        <Counter />
+
+        <Parent/>
+
       </ThemeProvider>
     </>
   )
