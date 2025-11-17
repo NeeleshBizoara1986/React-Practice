@@ -1,0 +1,32 @@
+/* Default Light Theme */
+body.light {
+  background-color: #ffffff;
+  color: #333333;
+  font-family: Arial, sans-serif;
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 15px;
+  margin: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+body.light button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+body.dark button {
+  background-color: #444;
+  color: #fff;
+}
