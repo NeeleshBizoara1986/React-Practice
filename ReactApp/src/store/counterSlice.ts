@@ -1,17 +1,20 @@
 import { configureStore, createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import api from "./axiosInstance";
 
-export const fetchRandomNumber = createAsyncThunk("counter/fetchRandomNumber", async () => {
-    
- try {
-    // const response = await fetch("https://www.randomnumberapi.com/api/v1.0/random?min=1&max=100");
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts"); // ✅ Goes through Vite proxy
-    if (!response.ok) throw new Error("Network response was not ok");
-    const data = await response.json();
-    return data[0];
-  } catch (error) {
-    console.error("Fetch error:", error);
-    throw error;
-  }
+export const fetchRandomNumber = createAsyncThunk("counter/fetchRandomNumber", async (_, { rejectWithValue }) => {
+
+    try {
+        // const response = await fetch("https://jsonplaceholder.typicode.com/posts"); // ✅ Goes through Vite proxy
+        // if (!response.ok) throw new Error("Network response was not ok");
+        // const data = await response.json();
+        // return data[0].id;
+        const response = await api.get("/posts");
+        return response.data[0].id
+    } catch (error: any) {
+        // console.error("Fetch error:", error);
+        // throw error;
+        return rejectWithValue(error.response?.data || "Something went wrong")
+    }
 
 })
 const counterSlice = createSlice({
@@ -27,7 +30,10 @@ const counterSlice = createSlice({
                 state.loading = false;
                 state.value = action.payload;
             })
-            .addCase(fetchRandomNumber.rejected, state => { state.loading = false; })
+            .addCase(fetchRandomNumber.rejected, (state, action) => {
+                state.loading = false;
+                console.log("Error : ", action.payload)
+            })
     }
 })
 
