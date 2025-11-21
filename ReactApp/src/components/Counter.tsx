@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement, fetchRandomNumber } from "../store/counterSlice";
 import { AppDispatch, RootState } from "../store/store";
@@ -6,6 +6,13 @@ import { AppDispatch, RootState } from "../store/store";
 const Counter: React.FC = () => {
     const { value, loading } = useSelector((state: RootState) => state.counter);
     const dispatch = useDispatch<AppDispatch>();
+
+    useEffect(() => {
+        const promise = dispatch(fetchRandomNumber());
+        return () => {
+            promise.abort(); // ✅ Cancel API call on unmount
+        };
+    }, [dispatch]);
 
     return (
         <div>

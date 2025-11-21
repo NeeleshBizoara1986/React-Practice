@@ -5,7 +5,8 @@ import { loggerMiddleware } from "./loggerMiddleware";
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer
+        counter: counterReducer,
+        // data: dataReducer,
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(loggerMiddleware),
 });

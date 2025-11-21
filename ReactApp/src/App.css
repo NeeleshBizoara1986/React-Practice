@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +41,76 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+
+
+/* ----------------------------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Styles for the main App container */
+.App-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the navigation bar */
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1.5rem;
+}
+
+/* Styles for the navigation links */
+nav a {
+  text-decoration: none;
+  color: #007bff; /* Blue color for links */
+  font-weight: bold;
+  padding: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #0056b3; /* Darker blue on hover */
+  text-decoration: underline;
+}
+
+/* Styles for the main content area (where Routes render) */
+main {
+  padding: 1rem;
+}
+
+/* General styles for page headings */
+h1 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Style for the 404 Not Found page link */
+.not-found-link {
+  color: #d9534f; /* Red color for alert link */
+  text-decoration: none;
+}
+
+.not-found-link:hover {
+  text-decoration: underline;
 }
